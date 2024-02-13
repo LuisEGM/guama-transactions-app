@@ -33,7 +33,7 @@ export const useModalTransactionEdit = (props) => {
             Name no empty, Amount greater than 0, Date: Format YYYY-MM-DD HH:MM:SS
           `,
           duration: 5000,
-          position: "bottom-center",
+          position: "bottom-right",
           closeButton: true,
         });
         return;

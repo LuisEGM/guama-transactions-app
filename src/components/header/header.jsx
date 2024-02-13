@@ -7,39 +7,52 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/react";
+import ModalMakePayment from "../modalMakePayment";
+import { useHeader } from "./useHeader";
 
 const Header = (props) => {
   const { backButton } = props;
 
-  return (
-    <Navbar>
-      <NavbarBrand>
-        <img
-          className="pt-3"
-          src={GuamaIcon}
-          alt="logo"
-          width="70"
-          height="40"
-        />
-        <p className="font-semibold text-inherit text-2xl ml-3 mt-2 text-gray-700 hidden sm:block">
-          Guama transactions
-        </p>
-      </NavbarBrand>
+  const {
+    isOpen,
+    onOpenChange,
+    handleMakePayment,
+  } = useHeader();
 
-      <NavbarContent justify="end">
-        <NavbarItem>
-          {backButton ? (
-            <Link to="/transactions">
-              <Button color="secondary" variant="light">
-                Go back
-              </Button>
-            </Link>
-          ) : (
-            <Button color="secondary">Make a payment</Button>
-          )}
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+  return (
+    <>
+      <Navbar>
+        <NavbarBrand>
+          <img
+            className="pt-3"
+            src={GuamaIcon}
+            alt="logo"
+            width="70"
+            height="40"
+          />
+          <p className="font-semibold text-inherit text-2xl ml-3 mt-2 text-gray-700 hidden sm:block">
+            Guama transactions
+          </p>
+        </NavbarBrand>
+        <NavbarContent justify="end">
+          <NavbarItem>
+            {backButton ? (
+              <Link to="/transactions">
+                <Button color="secondary" variant="light">
+                  Go back
+                </Button>
+              </Link>
+            ) : (
+              <Button color="secondary" onClick={handleMakePayment} >Make a payment</Button>
+            )}
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
+      <ModalMakePayment
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      />
+    </>
   );
 };
 

@@ -23,7 +23,7 @@ import { ChevronDownIcon } from "../../assets/chevronDownIcon";
 import { EditIcon } from "../../assets/editIcon";
 import { DeleteIcon } from "../../assets/deleteIcon";
 import { columns, statusOptions } from "../../utils/dataTable";
-import { capitalize } from "../../utils/commonUtils";
+import { amountWithCurrency, capitalize } from "../../utils/commonUtils";
 import { useTransactionsTable } from "./useTransactionsTable";
 import { Link } from "react-router-dom";
 
@@ -120,7 +120,7 @@ const TransactionsTable = (props) => {
         );
 
       case "amount":
-        return cellValue.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
+        return amountWithCurrency(cellValue);
 
       case "status":
         return (
@@ -128,7 +128,7 @@ const TransactionsTable = (props) => {
             className="capitalize"
             color={statusColorMap[item.status]}
             size="sm"
-            variant="flat"
+            variant="dot"
           >
             {cellValue}
           </Chip>
@@ -249,6 +249,11 @@ const TransactionsTable = (props) => {
                 ))}
               </DropdownMenu>
             </Dropdown>
+            <Link to="/payments">
+              <Button color="secondary" variant="bordered">
+                Go to payments
+              </Button>
+            </Link>
             <Link to="/add-transaction">
               <Button color="secondary" endContent={<PlusIcon />}>
                 Add New

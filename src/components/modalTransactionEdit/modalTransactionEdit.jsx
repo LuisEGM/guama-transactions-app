@@ -13,7 +13,7 @@ const ModalTransactionEdit = (props) => {
   });
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur">
       <ModalContent>
           {/* eslint-disable-next-line no-unused-vars */}
           {(onClose) => (

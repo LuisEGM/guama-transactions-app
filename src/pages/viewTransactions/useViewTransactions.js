@@ -17,14 +17,14 @@ export const useViewTransactions = () => {
         case "info":
           toast.info(info[1], {
             duration: 2500,
-            position: "bottom-center",
+            position: "bottom-right",
             closeButton: true,
           });
           break;
         case "warn":
           toast.warn(info[1], {
             duration: 2500,
-            position: "bottom-center",
+            position: "bottom-right",
             closeButton: true,
           });
           break;
@@ -44,7 +44,7 @@ export const useViewTransactions = () => {
         console.log(error);
         toast.warn("An error occurred while trying to load the transactions.", {
           duration: 5000,
-          position: "top-right",
+          position: "bottom-right",
           closeButton: true,
         });
       }
