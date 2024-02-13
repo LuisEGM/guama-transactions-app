@@ -22,7 +22,7 @@ export const useTransactionsTable = (props) => {
 
       toast.success(`The transaction with id <${id}> was removed.`, {
         duration: 2500,
-        position: "bottom-center",
+        position: "bottom-right",
         closeButton: true,
       });
 
@@ -31,7 +31,7 @@ export const useTransactionsTable = (props) => {
       console.error(error);
       toast.error(error.response.data.description, {
         duration: 5000,
-        position: "top-right",
+        position: "bottom-right",
         closeButton: true,
       });
     }
